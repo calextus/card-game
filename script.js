@@ -63,3 +63,62 @@ shuffleCard();
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
+//the score 
+// Add JavaScript code for scoreboard and timer
+// Get the scoreboard and timer elements
+const scoreElement = document.getElementById('score');
+const timerElement = document.getElementById('timer');
+
+// Set initial values
+let score = 0;
+let time = 0;
+
+// Update the scoreboard display
+function updateScore(newScore) {
+  score = newScore;
+  scoreElement.textContent = score;
+}
+
+// Update the timer display
+function updateTimer() {
+  time++;
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+// Call updateTimer every second
+setInterval(updateTimer, 1000);
+
+// You can add more functionality for the game logic here
+
+
+//score recorded
+
+function matchCards(img1, img2) {
+    if (img1 === img2) {
+        matched++;
+        updateScore(matched); // Update score when cards match
+
+        if (matched == 8) {
+            setTimeout(() => {
+                return shuffleCard();
+            }, 1000);
+        }
+        cardOne.removeEventListener("click", flipCard);
+        cardTwo.removeEventListener("click", flipCard);
+        cardOne = cardTwo = "";
+        return disableDeck = false;
+    }
+    setTimeout(() => {
+        cardOne.classList.add("shake");
+        cardTwo.classList.add("shake");
+    }, 400);
+
+    setTimeout(() => {
+        cardOne.classList.remove("shake", "flip");
+        cardTwo.classList.remove("shake", "flip");
+        cardOne = cardTwo = "";
+        disableDeck = false;
+    }, 1200);
+}

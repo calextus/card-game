@@ -12,6 +12,17 @@ body{
   min-height: 100vh;
   background: #6563FF;
 }
+.header{
+  align-items: left;
+  color: #fff;
+  padding-bottom: 500px;
+}
+.scoreboard,
+.timer {
+  display: inline-block;
+  margin-left: 20px;
+  color: #fff;
+}
 .wrapper{
   padding: 25px;
   border-radius: 10px;
