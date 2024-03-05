@@ -80,12 +80,26 @@ function updateScore(newScore) {
 }
 
 // Update the timer display
+  // Function to start the game and timer
+  function startGame() {
+    if (!gameStarted) {
+      gameStarted = true;
+      timerInterval = setInterval(updateTimer, 1000); // Start the timer
+      shuffleCard();
+    }
+  }
+
+
 function updateTimer() {
-  time++;
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-  timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
+    time++;
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  
+    if (matched === 8) {
+      clearInterval(timerInterval); // Stop the timer when all cards are matched
+    }
+  }
 
 // Call updateTimer every second
 setInterval(updateTimer, 1000);
@@ -122,3 +136,37 @@ function matchCards(img1, img2) {
         disableDeck = false;
     }, 1200);
 }
+// buttons 
+// Add JavaScript code for scoreboard, timer, and buttons
+const startButton = document.getElementById('startButton');
+const refreshButton = document.getElementById('refreshButton');
+
+let timerInterval;
+let gameStarted = false;
+
+// Function to start the game
+function startGame() {
+  if (!gameStarted) {
+    gameStarted = true;
+    timerInterval = setInterval(updateTimer, 1000);
+    shuffleCard();
+  }
+}
+
+// Function to restart the game
+function restartGame() {
+  clearInterval(timerInterval);
+  time = 0;
+  updateTimer();
+  matched = 0;
+  updateScore(matched);
+  gameStarted = false;
+  cards.forEach(card => {
+    card.addEventListener("click", flipCard);
+    card.classList.remove("flip");
+  });
+}
+
+// Event listeners for buttons
+startButton.addEventListener('click', startGame);
+refreshButton.addEventListener('click', restartGame);
