@@ -1,0 +1,8 @@
+<THIS IS << A SCHOOL PROJECT << OPEN TO ANYONE TO CHECK, RIGHT MY WRONGS AND SUCH..>>>
+<HTML>
+  <OPEN>
+    <H1>
+      LOOK</H1>
+    
+  </OPEN>
+</HTML>
