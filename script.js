@@ -80,10 +80,11 @@ function updateScore(newScore) {
 }
 
 // Update the timer display
+// Call updateTimer every second
   // Function to start the game and timer
   function startGame() {
     if (!gameStarted) {
-      gameStarted = true;
+      //gameStarted = true;
       timerInterval = setInterval(updateTimer, 1000); // Start the timer
       shuffleCard();
     }
@@ -101,8 +102,7 @@ function updateTimer() {
     }
   }
 
-// Call updateTimer every second
-setInterval(updateTimer, 1000);
+
 
 // You can add more functionality for the game logic here
 
@@ -151,7 +151,7 @@ function startGame() {
     timerInterval = setInterval(updateTimer, 1000);
     shuffleCard();
   }
-}
+} 
 
 // Function to restart the game
 function restartGame() {
