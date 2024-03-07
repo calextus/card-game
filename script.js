@@ -170,3 +170,4 @@ function restartGame() {
 // Event listeners for buttons
 startButton.addEventListener('click', startGame);
 refreshButton.addEventListener('click', restartGame);
+//this is the end of the java script code
